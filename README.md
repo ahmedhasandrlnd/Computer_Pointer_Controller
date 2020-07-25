@@ -1,7 +1,7 @@
 # Computer Pointer Controller
 
 Control the mouse pointer of the computer by using gaze detection points. The gaze is the deep learning model to estimate the gaze of the user’s eyes and change the mouse pointer position accordingly. The gaze detection model depends on the output of the other models face-detection, head-pose-estimation, facial-landmarks. So, The application is an integration of face detection model, head-pose estimation model, and facial landmarks model.
-![Pipeline](pipeline.JPG)
+![Pipeline](bin/pipeline.JPG)
 
 ## Project Set Up and Installation
 Step1. Download [OpenVino Toolkit 2020.1](https://docs.openvinotoolkit.org/latest/index.html) with all the prerequisites by following this installation [guide](https://docs.openvinotoolkit.org/2020.1/_docs_install_guides_installing_openvino_windows.html)
@@ -41,7 +41,7 @@ Use the following command to run the app
 python src/main.py -mf models/intel/face-detection-adas-binary-0001/FP32-INT1/face-detection-adas-binary-0001.xml -ml models/intel/landmarks-regression-retail-0009/FP32/landmarks-regression-retail-0009.xml -mh models/intel/head-pose-estimation-adas-0001/FP32/head-pose-estimation-adas-0001.xml -mg models/intel/gaze-estimation-adas-0002/FP32/gaze-estimation-adas-0002.xml -i bin/demo.mp4 -f ff fl fh fg
 ```
 Output 
-![mouse pointer](mouse_pointer.gif)
+![mouse pointer](bin/mouse_pointer.gif)
 
 ## Documentation
 
