@@ -44,7 +44,8 @@ Output
 ![mouse pointer](mouse_pointer.gif)
 
 ## Documentation
-Command Line Argument Information:
+
+### Command Line Argument Information
 * mf : Specify path of xml file of face detection model
 * ml : Specify path of xml file of landmark regression model
 * mh : Specify path of xml file of Head Pose Estimation model
@@ -55,6 +56,18 @@ Command Line Argument Information:
 * d (Optional): Specify Device for inference, the device can be CPU, GPU, FPGU, MYRID, default=CPU
 * o : Specify path of output folder where we will store results
 * b : Select True for benchmarking mode
+
+### Project Structure
+* models: This folder contains models in IR format downloaded from Openvino Model Zoo
+* src: This folder contains model files, pipeline file(main.py) and utilities
+	* face_detection_model.py
+	* gaze_estimation_model.py
+	* landmark_detection_model.py
+	* head_pose_estimation_model.py
+	* main.py file used to run complete pipeline of project. It calls has object of all the other class files in the folder
+	* mouse_controller.py is utility to move mouse curser based on mouse coordinates received from gaze_estimation_model class predict method.	
+	* input_feeder.py is utility to load local video or webcam feed
+* bin: this folder has demo.mp4 file which can be used to test model 
 
 ## Benchmarks
 *TODO:* Include the benchmark results of running your model on multiple hardwares and multiple model precisions. Your benchmarks can include: model loading time, input/output processing time, model inference time etc.
