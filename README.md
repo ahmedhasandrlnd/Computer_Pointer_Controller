@@ -95,11 +95,4 @@ python src/main.py -mf models/intel/face-detection-adas-binary-0001/FP32-INT1/fa
 
 * FP32 is showing the best results in terms of inference time, model load time and FPS.
 
-## Stand Out Suggestions
-This is where you can provide information about the stand out suggestions that you have attempted.
 
-### Async Inference
-If you have used Async Inference in your code, benchmark the results and explain its effects on power and performance of your project.
-
-### Edge Cases
-There will be certain situations that will break your inference flow. For instance, lighting changes or multiple people in the frame. Explain some of the edge cases you encountered in your project and how you solved them to make your project more robust.
