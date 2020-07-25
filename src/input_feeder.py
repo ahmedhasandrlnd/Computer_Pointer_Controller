@@ -36,8 +36,8 @@ class InputFeeder:
         '''
         while True:
             for _ in range(10):
-                _, frame=self.cap.read()
-            yield frame
+                ret, frame=self.cap.read()
+            yield ret, frame
 
 
     def close(self):
@@ -47,3 +47,8 @@ class InputFeeder:
         if not self.input_type=='image':
             self.cap.release()
 
+    def get_fps(self):
+        '''
+        return FPS
+        '''
+        return int(self.cap.get(cv2.CAP_PROP_FPS))

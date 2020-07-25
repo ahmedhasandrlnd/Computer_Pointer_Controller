@@ -1,15 +1,54 @@
 # Computer Pointer Controller
 
-*TODO:* Write a short introduction to your project
+Control the mouse pointer of the computer by using gaze detection points. The gaze is the deep learning model to estimate the gaze of the user’s eyes and change the mouse pointer position accordingly. The gaze detection model depends on the output of the other models face-detection, head-pose-estimation, facial-landmarks. So, The application is an integration of face detection model, head-pose estimation model, and facial landmarks model.
+![Pipeline](pipeline.JPG)
 
 ## Project Set Up and Installation
-*TODO:* Explain the setup procedures to run your project. For instance, this can include your project directory structure, the models you need to download and where to place them etc. Also include details about how to install the dependencies your project requires.
+Step1. Download [OpenVino Toolkit 2020.1](https://docs.openvinotoolkit.org/latest/index.html) with all the prerequisites by following this installation [guide](https://docs.openvinotoolkit.org/2020.1/_docs_install_guides_installing_openvino_windows.html)
+Step2. install all the dependency using ```pip install requirements.txt```.
+Step3. Initialze the OpenVino Environment on your local setup. Given below are the commands to initialize:
+```
+cd C:\Program Files (x86)\IntelSWTools\openvino\bin\
+setupvars.bat
+```
+Step4. Download the models using the commands below:
+1. Face Detection Model
+```
+python /opt/intel/openvino/deployment_tools/tools/model_downloader/downloader.py --name "face-detection-adas-binary-0001"
+```
+1. Gaze Estimation Model
+```
+python /opt/intel/openvino/deployment_tools/tools/model_downloader/downloader.py --name "gaze-estimation-adas-0002"
+```
+1. Facial Landmarks Detection Model
+```
+python /opt/intel/openvino/deployment_tools/tools/model_downloader/downloader.py --name "landmarks-regression-retail-0009"
+```
+1. Head Pose Estimation Model
+```
+python /opt/intel/openvino/deployment_tools/tools/model_downloader/downloader.py --name "head-pose-estimation-adas-0001"
+```
 
 ## Demo
-*TODO:* Explain how to run a basic demo of your model.
+Use the following command to run the app
+```
+python src/main.py -mf models/intel/face-detection-adas-binary-0001/FP32-INT1/face-detection-adas-binary-0001.xml -ml models/intel/landmarks-regression-retail-0009/FP32/landmarks-regression-retail-0009.xml -mh models/intel/head-pose-estimation-adas-0001/FP32/head-pose-estimation-adas-0001.xml -mg models/intel/gaze-estimation-adas-0002/FP32/gaze-estimation-adas-0002.xml -i bin/demo.mp4 -f ff fl fh fg
+```
+Output 
+![mouse pointer](mouse_pointer.gif)
 
 ## Documentation
-*TODO:* Include any documentation that users might need to better understand your project code. For instance, this is a good place to explain the command line arguments that your project supports.
+Command Line Argument Information:
+* mf : Specify path of xml file of face detection model
+* ml : Specify path of xml file of landmark regression model
+* mh : Specify path of xml file of Head Pose Estimation model
+* mg : Specify path of xml file of Gaze Estimation model
+* i : Specify path of input Video file or cam for Webcam
+* f (Optional): if you want to see preview video in separate window you need to Specify flag from ff, fl, fh, fg 
+* pt (Optional): if you want to specify confidence threshold for face detection, default=0.6
+* d (Optional): Specify Device for inference, the device can be CPU, GPU, FPGU, MYRID, default=CPU
+* o : Specify path of output folder where we will store results
+* b : Select True for benchmarking mode
 
 ## Benchmarks
 *TODO:* Include the benchmark results of running your model on multiple hardwares and multiple model precisions. Your benchmarks can include: model loading time, input/output processing time, model inference time etc.
