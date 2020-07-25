@@ -5,13 +5,14 @@ Control the mouse pointer of the computer by using gaze detection points. The ga
 
 ## Project Set Up and Installation
 Step1. Download [OpenVino Toolkit 2020.1](https://docs.openvinotoolkit.org/latest/index.html) with all the prerequisites by following this installation [guide](https://docs.openvinotoolkit.org/2020.1/_docs_install_guides_installing_openvino_windows.html)
-Step2. install all the dependency using ```pip install requirements.txt```.
-Step3. Initialze the OpenVino Environment on your local setup. Given below are the commands to initialize:
+Step2: Step3. Create Virtual Environment using command ```virtualenv venv``` in the command prompt
+Step3. install all the dependency using ```pip install requirements.txt```.
+Step4. Initialze the OpenVino Environment on your local setup. Given below are the commands to initialize:
 ```
 cd C:\Program Files (x86)\IntelSWTools\openvino\bin\
 setupvars.bat
 ```
-Step4. Download the models using the commands below:
+Step5. Download the models using the commands below:
 1. Face Detection Model
 ```
 python /opt/intel/openvino/deployment_tools/tools/model_downloader/downloader.py --name "face-detection-adas-binary-0001"
