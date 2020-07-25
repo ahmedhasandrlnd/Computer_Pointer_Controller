@@ -87,12 +87,12 @@ python src/main.py -mf models/intel/face-detection-adas-binary-0001/FP32-INT1/fa
 ```
 
 ## Results
-|				|FP16	|FP16-INT8	|FP32  	|
+|Metrics 		|FP16	|FP16-INT8	|FP32  	|
 |---------------|-------|-----------|-------|
 |Inference time	|13.9s	|13.4s		|13.4s  |
 |Model load time|0.45s	|0.67s		|0.42s  |
 |FPS			|4.24	|4.40		|4.40   |
-
+FP32 is showing the best results in terms of inference time, model load time and FPS.
 
 ## Stand Out Suggestions
 This is where you can provide information about the stand out suggestions that you have attempted.
