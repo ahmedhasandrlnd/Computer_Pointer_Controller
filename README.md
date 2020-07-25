@@ -58,19 +58,33 @@ Output
 * b : Select True for benchmarking mode
 
 ### Project Structure
-* models: This folder contains models in IR format downloaded from Openvino Model Zoo
-* src: This folder contains model files, pipeline file(main.py) and utilities
-	* face_detection_model.py
-	* gaze_estimation_model.py
-	* landmark_detection_model.py
-	* head_pose_estimation_model.py
-	* main.py file used to run complete pipeline of project. It calls has object of all the other class files in the folder
-	* mouse_controller.py is utility to move mouse curser based on mouse coordinates received from gaze_estimation_model class predict method.	
-	* input_feeder.py is utility to load local video or webcam feed
-* bin: this folder has demo.mp4 file which can be used to test model 
+* `models`: This folder contains models in IR format downloaded from Openvino Model Zoo
+* `src`: This folder contains model files, pipeline file(main.py) and utilities
+	* `face_detection_model.py`
+	* `gaze_estimation_model.py`
+	* `landmark_detection_model.py`
+	* `head_pose_estimation_model.py`
+	* `main.py` file used to run complete pipeline of project. It calls has object of all the other class files in the folder
+	* `mouse_controller.py` is utility to move mouse curser based on mouse coordinates received from gaze_estimation_model class predict method.	
+	* `input_feeder.py` is utility to load local video or webcam feed
+* `bin`: this folder has demo.mp4 file which can be used to test model
+* `results`: store the output video and benchmark results
+* `requirements.txt`: dependencies 
 
 ## Benchmarks
-*TODO:* Include the benchmark results of running your model on multiple hardwares and multiple model precisions. Your benchmarks can include: model loading time, input/output processing time, model inference time etc.
+I have checked Inference Time, Model Loading Time, and Frames Per Second model for FP16, FP32, and FP32-INT8 of all the models except Face Detection Model. Face Detection Model was only available on FP32-INT1 precision. You can use below commands to get results for respective precisions
+### FP32
+```
+python src/main.py -mf models/intel/face-detection-adas-binary-0001/FP32-INT1/face-detection-adas-binary-0001.xml -ml models/intel/landmarks-regression-retail-0009/FP32/landmarks-regression-retail-0009.xml -mh models/intel/head-pose-estimation-adas-0001/FP32/head-pose-estimation-adas-0001.xml -mg models/intel/gaze-estimation-adas-0002/FP32/gaze-estimation-adas-0002.xml -i bin/demo.mp4 -o results/FP32/ -b -f ff fl fh fg
+```
+### FP16
+```
+python src/main.py -mf models/intel/face-detection-adas-binary-0001/FP32-INT1/face-detection-adas-binary-0001.xml -ml models/intel/landmarks-regression-retail-0009/FP16/landmarks-regression-retail-0009.xml -mh models/intel/head-pose-estimation-adas-0001/FP16/head-pose-estimation-adas-0001.xml -mg models/intel/gaze-estimation-adas-0002/FP16/gaze-estimation-adas-0002.xml -i bin/demo.mp4 -o results/FP16/ -b -f ff fl fh fg
+```
+### FP16-INT8
+```
+python src/main.py -mf models/intel/face-detection-adas-binary-0001/FP32-INT1/face-detection-adas-binary-0001.xml -ml models/intel/landmarks-regression-retail-0009/FP16-INT8/landmarks-regression-retail-0009.xml -mh models/intel/head-pose-estimation-adas-0001/FP16-INT8/head-pose-estimation-adas-0001.xml -mg models/intel/gaze-estimation-adas-0002/FP16-INT8/gaze-estimation-adas-0002.xml -i bin/demo.mp4 -o results/FP16-INT8/ -b -f ff fl fh fg
+```
 
 ## Results
 *TODO:* Discuss the benchmark results and explain why you are getting the results you are getting. For instance, explain why there is difference in inference time for FP32, FP16 and INT8 models.

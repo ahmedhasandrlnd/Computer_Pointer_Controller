@@ -39,7 +39,7 @@ def build_argparser():
                         help="Specify Device for inference"
                              "It can be CPU, GPU, FPGU, MYRID")
     parser.add_argument("-o", '--output_path', default='/results/', type=str)
-    parser.add_argument("-b","--benchmark", required=False, default=False, action="store_true" , help="Choose for benchmarking mode")
+    parser.add_argument("-b","--benchmark", required=False, default=False, action="store_true" , help="Select True for benchmarking mode")
 
     return parser
 
@@ -123,7 +123,7 @@ def main():
     gaze_estimation_model.load_model()
     total_model_load_time = time.time() - start_model_load_time
     feeder.load_data()
-    out_video = cv2.VideoWriter(os.path.join('output_video.mp4'), cv2.VideoWriter_fourcc(*'avc1'), int(feeder.get_fps()/10),
+    out_video = cv2.VideoWriter(os.path.join('results/output_video.mp4'), cv2.VideoWriter_fourcc(*'avc1'), int(feeder.get_fps()/10),
                                 (1920, 1080), True)
     frame_count = 0
     start_inference_time = time.time()
@@ -176,10 +176,10 @@ def main():
     total_inference_time = round(total_time, 1)
     fps = frame_count / total_inference_time
 
-    try:
-        os.mkdir(output_path)
-    except OSError as error:
-        logger.error(error)
+#    try:
+#        os.mkdir(output_path)
+#    except OSError as error:
+#        logger.error(error)
 
     with open(output_path+'stats.txt', 'w') as f:
         f.write(str(total_inference_time) + '\n')
