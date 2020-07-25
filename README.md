@@ -17,19 +17,20 @@ setupvars.bat
 ```
 
 Step5. Download the models using the commands below:
-	1. Face Detection Model
+	
+1. Face Detection Model
 	```
 	python /opt/intel/openvino/deployment_tools/tools/model_downloader/downloader.py --name "face-detection-adas-binary-0001"
 	```
-	1. Gaze Estimation Model
+1. Gaze Estimation Model
 	```
 	python /opt/intel/openvino/deployment_tools/tools/model_downloader/downloader.py --name "gaze-estimation-adas-0002"
 	```
-	1. Facial Landmarks Detection Model
+1. Facial Landmarks Detection Model
 	```
 	python /opt/intel/openvino/deployment_tools/tools/model_downloader/downloader.py --name "landmarks-regression-retail-0009"
 	```
-	1. Head Pose Estimation Model
+1. Head Pose Estimation Model
 	```
 	python /opt/intel/openvino/deployment_tools/tools/model_downloader/downloader.py --name "head-pose-estimation-adas-0001"
 	```
