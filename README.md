@@ -92,7 +92,7 @@ python src/main.py -mf models/intel/face-detection-adas-binary-0001/FP32-INT1/fa
 |Inference time	|13.9s	|13.4s		|13.4s  |
 |Model load time|0.45s	|0.67s		|0.42s  |
 |FPS			|4.24	|4.40		|4.40   |
-|---------------|-------|-----------|-------|
+
 
 ## Stand Out Suggestions
 This is where you can provide information about the stand out suggestions that you have attempted.
