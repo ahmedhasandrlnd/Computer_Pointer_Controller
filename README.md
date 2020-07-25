@@ -87,7 +87,12 @@ python src/main.py -mf models/intel/face-detection-adas-binary-0001/FP32-INT1/fa
 ```
 
 ## Results
-*TODO:* Discuss the benchmark results and explain why you are getting the results you are getting. For instance, explain why there is difference in inference time for FP32, FP16 and INT8 models.
+|				|FP16	|FP16-INT8	|FP32  	|
+|---------------|-------|-----------|-------|
+|Inference time	|13.9s	|13.4s		|13.4s  |
+|Model load time|0.45s	|0.67s		|0.42s  |
+|FPS			|4.24	|4.40		|4.40   |
+|---------------|-------|-----------|-------|
 
 ## Stand Out Suggestions
 This is where you can provide information about the stand out suggestions that you have attempted.
