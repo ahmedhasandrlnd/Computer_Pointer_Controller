@@ -176,10 +176,6 @@ def main():
     total_inference_time = round(total_time, 1)
     fps = frame_count / total_inference_time
 
-#    try:
-#        os.mkdir(output_path)
-#    except OSError as error:
-#        logger.error(error)
 
     with open(output_path+'stats.txt', 'w') as f:
         f.write(str(total_inference_time) + '\n')
