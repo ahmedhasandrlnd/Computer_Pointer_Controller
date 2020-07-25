@@ -4,7 +4,7 @@ Control the mouse pointer of the computer by using gaze detection points. The ga
 ![Pipeline](bin/pipeline.JPG)
 
 ## Project Set Up and Installation
-Step1. Download [OpenVino Toolkit 2020.1](https://docs.openvinotoolkit.org/latest/index.html) with all the prerequisites by following this installation [guide](https://docs.openvinotoolkit.org/2020.1/_docs_install_guides_installing_openvino_windows.html)
+Step1. Download OpenVino Toolkit 2020.1 with all the prerequisites by following this installation [guide](https://docs.openvinotoolkit.org/2020.1/_docs_install_guides_installing_openvino_windows.html)
 
 Step2: Create Virtual Environment using command ```virtualenv venv``` in the command prompt
 
